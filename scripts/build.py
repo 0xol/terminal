@@ -14,11 +14,11 @@ def compile(filename):
 
 def linkLinux():
     print("[LD]  terminal")
-    os.system("gcc bin/*.o -o terminal/terminal -no-pie -lraylib -lGL -llua -lpthread -ldl -lm -lrt -lX11 -DPLATFORM_DESKTOP -Os")
+    os.system("gcc bin/*.o -o terminal/terminal -no-pie -lraylib -lGL -lpthread -ldl -lm -lrt -lX11 -DPLATFORM_DESKTOP -Os")
 
 def linkWin():
     print("[LD]  terminal.exe")
-    os.system("gcc bin/*.o -o terminal/terminal.exe -lraylib -lws2_32 -llua -lopengl32 -lgdi32 -lwinmm -DPLATFORM_DESKTOP -Os")
+    os.system("gcc bin/*.o -o terminal/terminal.exe -lraylib -lws2_32 -lopengl32 -lgdi32 -lwinmm -DPLATFORM_DESKTOP -Os")
 
 def compileDir(dir):
     for file in os.listdir(dir):
@@ -30,6 +30,8 @@ def compileDir(dir):
 
 def buildLinux():
     compileDir(os.getcwd() + "/src")
+    os.system("cp " + os.getcwd() + "/src/BIOS.ttf terminal/bios.ttf")
+    os.system("cp " + os.getcwd() + "/src/config.term terminal/config.term")
     linkLinux()
 
 def buildWin():

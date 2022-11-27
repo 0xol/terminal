@@ -4,6 +4,7 @@
         "luaconf.h": "c",
         "lauxlib.h": "c",
         "lualib.h": "c",
-        "luahandler.h": "c"
+        "luahandler.h": "c",
+        "raylib.h": "c"
     }
 }
